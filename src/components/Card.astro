@@ -1,0 +1,12 @@
+---
+const { title, description, picSrc } = Astro.props
+---
+<section class="card">
+    <img src={picSrc} alt={title}>
+    <h3>{title}</h3>
+    <p>{description}</p>
+</section>
+
+<style>
+    
+</style>
