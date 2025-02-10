@@ -1,12 +1,46 @@
 ---
 import Cards from "./Card.astro"
+import Project from '../assets/projects.png'
+import Community from '../assets/community.png'
+import Code from '../assets/code.png'
 ---
 <section class="how-it-works">
     <h2>¿Qué podrás obtener uniéndote a nuestra comunidad?</h2>
-    <Cards title="Emmanuel" description="Trabaja con la mejor"/>
+    <section class="inner-cards">
+        <Cards
+        title="Proyectos"
+        description="Elije entre nuestros proyectos disponibles, filtra por dificultad y aprende programando."
+        picSrc={Project.src}
+        />
+        <Cards
+            title="Comunidad"
+            description="Apóyate con la comunidad, da y recibe feedback de tus proyectos y haz networking con otros desarrolladores."
+            picSrc={Community.src}
+        />
+        <Cards 
+            title="Ways"
+            description="Nuestros ways son retos de código que desafiaran tus habilidades y te ayudarán a mejorar tu lógica."
+            picSrc={Code.src}
+        />
+    </section>
 </section>
 <style>
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        max-width: 1200px;
+        margin: 20px auto;
+    }
+    .inner-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
     .how-it-works {
-        padding: 20px;
+        padding: 100px 20px;
+        background-color: black;
+        color: white;
     }
 </style>
