@@ -2,25 +2,35 @@
 import CoderwaysLogo from '../assets/coderways.png'
 import HeroImage from '../assets/hero-image.png'
 ---
-
+<img src={CoderwaysLogo.src} alt="Coderways Logo" class="coderways-logo">
 <section class="main-section">
-	<img src={CoderwaysLogo.src} alt="Coderways Logo" class="coderways-logo">
-	<h1>Mejora tus habilidades <span>programando</span></h1>
-	<p>Aprende y mejora tus habilidades de programación creando proyectos reales, <strong>conviértete en el candidato ideal</strong> que cualquier empresa quiera tener.</p>
-	<p>Únete a la lista de espera de nuestra comunidad.</p>
-	<section class="input-container">
-		<input type="email" name="email" id="email" placeholder="Tu correo electrónico">
-		<button>Unirme</button>
+	<section class="partOne">
+		<img src={CoderwaysLogo.src} alt="Coderways Logo" class="coderways-logo-desktop">
+		<h1>Mejora tus habilidades <span>programando</span></h1>
+		<p>Aprende y mejora tus habilidades de programación creando proyectos reales, <strong>conviértete en el programador ideal</strong>.</p>
+		<section class="input-container">
+			<input type="email" name="email" id="email" placeholder="Tu correo electrónico" required>
+			<button type="submit">Unirme</button>
+		</section>
 	</section>
 	<img src={HeroImage.src} alt="Black and white people illustration from FreePik" class="hero-image">
 </section>
 
 <style>
+	.coderways-logo {
+		display: flex;
+		justify-self: center;
+	}
+	.partOne {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 	.main-section {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 20px;
+		padding: 100px 20px;
 	}
 	h1 {
 		font-size: 2.3rem;
@@ -55,12 +65,14 @@ import HeroImage from '../assets/hero-image.png'
 	}
 	.input-container input {
 		height: 50px;
-		padding: 5px 10px;
+		padding: 5px 20px;
 		background: none;
 		border: none;
 		width: 100%;
 		background-color: rgb(231, 231, 231);
 		font-size: 1rem;
+		border-top-left-radius: 8px;
+		border-bottom-left-radius: 8px;
 	}
 	.input-container input:focus {
 		outline: none;
@@ -68,9 +80,41 @@ import HeroImage from '../assets/hero-image.png'
 	.input-container button {
 		background-color: #000000;
 		color: white;
-		font-weight: 700;
+		font-weight: 500;
 		border: none;
-		padding: 10px;
+		padding: 10px 20px;
 		font-size: 1rem;
+		border-top-right-radius: 8px;
+		border-bottom-right-radius: 8px;
+		cursor: pointer;
+	}
+	.coderways-logo-desktop {
+		display: none;
+	}
+	@media (min-width: 1268px) {
+		.main-section {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			max-width: 1400px;
+			margin: 0 auto;
+		}
+		.partOne {
+			align-items: flex-start;
+		}
+		.partOne h1 {
+			text-align: start;
+			font-size: 2.5rem;
+		}
+		.partOne p {
+			text-align: start;
+		}
+		.coderways-logo {
+			display: none;
+		}
+		.coderways-logo-desktop {
+			display: block;
+			width: 150px;
+			margin-bottom: 10px;
+		}
 	}
 </style>
