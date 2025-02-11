@@ -1,0 +1,29 @@
+---
+const { question, answer } = Astro.props
+
+---
+
+<section class="section-container">
+    <p class="question">{question}</p>
+    <div class="answer-container">
+        <p class="answer">{ answer }</p>
+    </div>
+</section>
+<style>
+    .section-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .question {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        border-bottom: 1px solid rgb(90, 87, 124);
+        padding: 10px 0px;
+    }
+    .answer {
+        font-size: 1rem;
+        color: rgb(205, 205, 205);
+    }
+</style>

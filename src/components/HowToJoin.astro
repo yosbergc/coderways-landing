@@ -1,0 +1,78 @@
+---
+import HowItWorksImage from '../assets/como-funciona.jpg'
+import Question from './Question.astro'
+---
+<section class="how-to-join">
+    <section class="inner-how-to-join">
+        <h2>¿Como funciona esto?</h2>
+        <p>Practica tus habilidades con retos de programación, proyectos reales, estudia en equipo con personas aleatorias o en solitario y consigue ganar experiencia de la mejor manera que es programando.</p>
+    </section>
+    <section class="preguntas-frecuentes">
+        <h2>Preguntas frecuentes</h2>
+        <Question
+        question="¿Tendré que pagar para usar Coderways?"
+        answer="No, gran parte de lo que ofrecemos es y siempre será gratis, pero si quieres sacar el máximo potencial de nuestro sitio puedes adquirir una suscripción."
+        />
+        <Question
+        question="¿Cuánto tiempo demorarán en tener listo el proyecto?"
+        answer="Nuestro equipo está trabajando para tenerlo listo a finales de 2025, estamos priorizando la calidad y robustez del proyecto."
+        />
+        <Question
+        question="¿Qué podré hacer con Coderways?"
+        answer="Nuestra plataforma integrará distintos métodos para aprender sobre programación, proyectos que podrás filtrar por dificultad para realizarlos en solitario, con amigos o con un grupo de personas aleatorias. Participar en la comunidad, resolver ways (retos de lógica)."
+        />
+        <Question 
+        question="¿Qué puedo obtener si obtengo una suscripción?"
+        answer="Dependiendo de la suscripción que elijas obtendrás más beneficios, desde clases en vivo, varios proyectos al mismo tiempo, proyectos solo para personas con suscripción, incluso la oportunidad de trabajar con nuestro equipo si pareces un perfil adecuado a lo que estemos buscando actualmente."
+        />
+        <Question 
+        question="¿Para qué roles puedo practicar en Coderways?"
+        answer="Estaremos enfocados en roles de desarrolladores de frontend, backend, full-stack y de aplicaciones móviles, aunque nuestros retos de código estarán enfocados en mejorar tu lógica como programador."
+        />
+    </section>
+</section>
+<style>
+    .inner-how-to-join img {
+        border-radius: 8px;
+    }
+    .how-to-join {
+        background-color: #1b2535;
+        padding: 20px;
+        color: white;
+        padding: 40px 20px;
+    }
+    .preguntas-frecuentes h2 {
+        text-align: center;
+    }
+    .main-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    .how-to-join p {
+        margin-top: 20px;
+        text-align: start;
+    }
+    .inner-how-to-join {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .preguntas-frecuentes {
+        margin-top: 50px;
+    }
+    @media (min-width: 1268px) {
+        .inner-how-to-join {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 100px 0px;
+        }
+        .how-to-join p {
+            margin-top: 0px;
+            font-size: 1.3rem;
+            text-align: right;
+        }
+    }
+</style>
