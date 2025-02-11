@@ -1,11 +1,16 @@
 ---
 import HowItWorksImage from '../assets/como-funciona.jpg'
+import LearnProgrammingImage from '../assets/aprende-programando.jpg'
 import Question from './Question.astro'
 ---
 <section class="how-to-join">
     <section class="inner-how-to-join">
         <h2>¿Como funciona esto?</h2>
         <p>Practica tus habilidades con retos de programación, proyectos reales, estudia en equipo con personas aleatorias o en solitario y consigue ganar experiencia de la mejor manera que es programando.</p>
+    </section>
+    <section class="images-container">
+        <img src={HowItWorksImage.src} alt="Aprende en equipo" >
+        <img src={LearnProgrammingImage.src} alt="Aprende programando.">
     </section>
     <section class="preguntas-frecuentes">
         <h2>Preguntas frecuentes</h2>
@@ -36,7 +41,7 @@ import Question from './Question.astro'
         border-radius: 8px;
     }
     .how-to-join {
-        background-color: #1b2535;
+        background-color: #020817;
         padding: 20px;
         color: white;
         padding: 40px 20px;
@@ -48,6 +53,22 @@ import Question from './Question.astro'
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+    .images-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px 0px;
+    }
+    .images-container img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        object-fit: cover;
+        max-height: 250px;
+        object-position: bottom;
     }
     h2 {
         font-size: 1.8rem;
