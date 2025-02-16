@@ -8,14 +8,52 @@ import HeroImage from '../assets/hero-image.png'
 		<img src={CoderwaysLogo.src} alt="Coderways Logo" class="coderways-logo-desktop">
 		<h1>Mejora tus habilidades <span>programando</span></h1>
 		<p>Aprende y mejora tus habilidades de programación creando proyectos reales, <strong>conviértete en el programador ideal</strong>.</p>
-		<section class="input-container">
+		<form class="input-container">
 			<input type="email" name="email" id="email" placeholder="Tu correo electrónico" required>
 			<button type="submit">Unirme</button>
+		</form>
+		<section class="hidden alreadyRegistered">
+			<h3>Has sido registrado/a exitosamente.</h3>
 		</section>
 	</section>
 	<img src={HeroImage.src} alt="Black and white people illustration from FreePik" class="hero-image">
 </section>
+<script>
+	import { addEmail } from "../services/addEmail";
+	const form = document.querySelector('.input-container') as HTMLFormElement;
+	const hiddenContainer = document.querySelector('.alreadyRegistered')
+	form?.addEventListener('submit', async (event) => {
+		event.preventDefault()
+		const data = new FormData(form)
+		const email = data.get('email')
+		try {
+			const response = await addEmail(email)
+			window.localStorage.setItem('alreadyRegistered', JSON.stringify({
+				status: response.status,
+				email	
+			}))
+			
+			form.classList.add('hidden')
+			hiddenContainer?.classList.remove('hidden')
+		} catch (error) {
+			if (error instanceof Error) {
+				console.error(error.message)
+			}
+		}
+	})
+</script>
+<script>
+	window.addEventListener('load', () => {
+		const form = document.querySelector('.input-container') as HTMLFormElement;
+		const hiddenContainer = document.querySelector('.alreadyRegistered')
+		const alreadyRegistered = window.localStorage.getItem('alreadyRegistered')
 
+		if (!alreadyRegistered) return;
+
+		form.classList.add('hidden')
+		hiddenContainer?.classList.remove('hidden')
+	})
+</script>
 <style>
 	.coderways-logo {
 		display: flex;
@@ -90,6 +128,14 @@ import HeroImage from '../assets/hero-image.png'
 	}
 	.coderways-logo-desktop {
 		display: none;
+	}
+	.hidden {
+		display: none;
+	}
+	.alreadyRegistered {
+		background-color: rgb(242, 255, 191);
+		padding: 20px;
+		border: 1px solid rgb(243, 243, 28);
 	}
 	@media (min-width: 1268px) {
 		.main-section {
